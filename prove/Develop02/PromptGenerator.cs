@@ -18,6 +18,7 @@ public class PromptGenerator
             "What is one positive thing about me today?",
             "Was I a positive influence to somebody today?",
             "What is something new that I learned today?"
+            "Random thoughts:"
         };
     }
 

@@ -13,7 +13,7 @@ public class Entry
         EntryText = entryText;
     }
 
-    public Entry(string date, string promptText, string entryText) // Overloaded constructor for loading entries
+    public Entry(string date, string promptText, string entryText)
     {
         Date = date;
         PromptText = promptText;
