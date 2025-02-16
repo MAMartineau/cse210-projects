@@ -11,9 +11,15 @@ public class Journal
         _entries = new List<Entry>();
     }
 
-    public void AddEntry(Entry newEntry)
+    public void AddEntry(PromptGenerator promptGenerator)
     {
-        _entries.Add(newEntry);
+        string prompt = promptGenerator.GetRandomPrompt();
+        Console.WriteLine($"Prompt: {prompt}");
+        Console.Write("Your response: ");
+        string response = Console.ReadLine();
+
+        _entries.Add(new Entry(prompt, response));
+        Console.WriteLine("Entry added.");
     }
 
     public void DisplayAll()
@@ -36,7 +42,7 @@ public class Journal
         {
             foreach (var entry in _entries)
             {
-                writer.WriteLine($"{entry._date},{entry._promptText},{entry._entryText}");
+                writer.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
             }
         }
         Console.WriteLine($"Journal saved to {filename}");
@@ -55,7 +61,7 @@ public class Journal
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(",");
+            string[] parts = line.Split("|");
 
             if (parts.Length == 3)
             {

@@ -22,12 +22,7 @@ class Program
 
             if (choice == "1")
             {
-                string prompt = promptGenerator.GetRandomPrompt();
-                Console.WriteLine($"Prompt: {prompt}");
-                Console.Write("Your response: ");
-                string response = Console.ReadLine();
-                journal.AddEntry(new Entry(prompt, response));
-                Console.WriteLine("Entry added.");
+                journal.AddEntry(promptGenerator);
             }
             else if (choice == "2")
             {
